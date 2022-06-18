@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "xclog",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Yang-Xijie/XCLog",
+      "state" : {
+        "branch" : "main",
+        "revision" : "0bcd55465a2f6b248d3780e4f719246fa95d36db"
+      }
+    }
+  ],
+  "version" : 2
+}
