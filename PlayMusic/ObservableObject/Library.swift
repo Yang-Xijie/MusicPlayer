@@ -7,7 +7,7 @@ class Library: ObservableObject {
         Song(name: "君の笑う声", url: Bundle.main.url(forResource: "君の笑う声", withExtension: "mp3")!),
         Song(name: "地平线", url: Bundle.main.url(forResource: "地平线", withExtension: "m4a")!),
     ]
-    
+
     func ImportUserSongFromFile() {
         XCLog()
 

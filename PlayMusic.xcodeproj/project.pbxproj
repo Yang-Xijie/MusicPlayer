@@ -60,12 +60,12 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		48B1749C285E8C7800999DA7 /* Extensions */ = {
+		48B1749C285E8C7800999DA7 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				48B1749D285E8C9000999DA7 /* TimeInterval+string.swift */,
 			);
-			path = Extensions;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		48B174A3285E927900999DA7 /* ObservableObject */ = {
@@ -84,6 +84,14 @@
 				48DCB17E285E62A0008692B9 /* MainView.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		48B174A7285E992400999DA7 /* DataStructure */ = {
+			isa = PBXGroup;
+			children = (
+				48B1745C285E6A3D00999DA7 /* Song.swift */,
+			);
+			path = DataStructure;
 			sourceTree = "<group>";
 		};
 		48DCB170285E62A0008692B9 = {
@@ -107,11 +115,11 @@
 		48DCB17B285E62A0008692B9 /* PlayMusic */ = {
 			isa = PBXGroup;
 			children = (
-				48B1745E285E6A4500999DA7 /* Resource */,
 				48B174A6285E943A00999DA7 /* App */,
 				48B174A3285E927900999DA7 /* ObservableObject */,
-				48B1745C285E6A3D00999DA7 /* Song.swift */,
-				48B1749C285E8C7800999DA7 /* Extensions */,
+				48B174A7285E992400999DA7 /* DataStructure */,
+				48B1749C285E8C7800999DA7 /* Extension */,
+				48B1745E285E6A4500999DA7 /* Resource */,
 				48DCB180285E62A4008692B9 /* Assets.xcassets */,
 				48DCB182285E62A4008692B9 /* Preview Content */,
 			);

@@ -3,10 +3,17 @@ import Foundation
 import XCLog
 
 class Player: ObservableObject {
-    @Published var audioPlayer: AVAudioPlayer?
+    private var audioPlayer: AVAudioPlayer?
+    private var audioPlayerDelegate: PlayerDelegate?
     @Published var isPlaying = false
-    @Published var isFinished = false
-    var audioPlayerDelegate = PlayerDelegate()
+    @Published var progress: Double? = nil
+    @Published var position: Double? = nil
+    @Published var duration: Double? = nil
+
+    init() {
+        XCLog()
+        self.audioPlayerDelegate = PlayerDelegate(player: self)
+    }
 
     func playNewSong(_ song: Song) {
         XCLog()
@@ -31,12 +38,37 @@ class Player: ObservableObject {
                 player.play()
                 isPlaying.toggle()
             }
+        } else {
+            isPlaying = false
+        }
+    }
+
+    func finishPlaying() {
+        XCLog()
+
+        isPlaying = false
+    }
+
+    func updateProgress() {
+        if let player = audioPlayer {
+            progress = player.currentTime / player.duration
+            position = player.currentTime
+            duration = player.duration
+        } else {
+            progress = nil
         }
     }
 }
 
 class PlayerDelegate: NSObject, AVAudioPlayerDelegate {
+    var player: Player
+
+    init(player: Player) {
+        self.player = player
+    }
+
     func audioPlayerDidFinishPlaying(_: AVAudioPlayer, successfully _: Bool) {
         XCLog()
+        player.finishPlaying()
     }
 }
