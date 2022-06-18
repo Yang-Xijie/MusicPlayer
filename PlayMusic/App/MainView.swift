@@ -16,32 +16,36 @@ struct MainView: View {
                     NavigationLink {
                         VStack {
                             Spacer()
+
                             Image(systemName: "music.note")
                                 .font(.system(size: 144))
                                 .foregroundColor(player.isPlaying ? .black : .gray)
+
                             Spacer()
+
                             Divider()
-                            Button(action: {
-                                withAnimation {
-                                    player.playpauseCurrentSong()
+
+                            VStack {
+                                HStack {
+                                    Text(player.position == nil ? "-:-" : player.position!.string)
+                                    // https://www.hackingwithswift.com/quick-start/swiftui/how-to-show-progress-on-a-task-using-progressview
+                                    ProgressView(value: player.progress)
+                                        .onReceive(timer) { _ in
+                                            player.updateProgress()
+                                        }
+                                    Text(player.duration == nil ? "-:-" : player.duration!.string)
                                 }
-                            }) {
-                                VStack {
-                                    HStack {
-                                        Text(player.position == nil ? "-:-" : player.position!.string)
-                                        // https://www.hackingwithswift.com/quick-start/swiftui/how-to-show-progress-on-a-task-using-progressview
-                                        ProgressView(value: player.progress)
-                                            .onReceive(timer) { _ in
-                                                player.updateProgress()
-                                            }
-                                        Text(player.duration == nil ? "-:-" : player.duration!.string)
+                                Button(action: {
+                                    withAnimation {
+                                        player.playpauseCurrentSong()
                                     }
+                                }) {
                                     Image(systemName: player.isPlaying ? "pause.circle" : "play.circle")
                                         .font(.system(size: 60))
                                 }
-                                .padding()
                                 .edgesIgnoringSafeArea(.bottom)
                             }
+                            .padding()
                         }
                         .padding()
                         .onAppear {
