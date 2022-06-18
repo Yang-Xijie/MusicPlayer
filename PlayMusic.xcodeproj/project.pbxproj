@@ -13,7 +13,9 @@
 		48B1745D285E6A3D00999DA7 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1745C285E6A3D00999DA7 /* Song.swift */; };
 		48B1749E285E8C9000999DA7 /* TimeInterval+string.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1749D285E8C9000999DA7 /* TimeInterval+string.swift */; };
 		48B174A0285E8FDC00999DA7 /* Sorrow Rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 48B1749F285E8FDB00999DA7 /* Sorrow Rain.mp3 */; };
-		48DCB17D285E62A0008692B9 /* PlayMusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DCB17C285E62A0008692B9 /* PlayMusicApp.swift */; };
+		48B174A2285E927600999DA7 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B174A1285E927600999DA7 /* Player.swift */; };
+		48B174A5285E933900999DA7 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B174A4285E933900999DA7 /* Library.swift */; };
+		48DCB17D285E62A0008692B9 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DCB17C285E62A0008692B9 /* App.swift */; };
 		48DCB17F285E62A0008692B9 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DCB17E285E62A0008692B9 /* MainView.swift */; };
 		48DCB181285E62A4008692B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48DCB180285E62A4008692B9 /* Assets.xcassets */; };
 		48DCB184285E62A4008692B9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48DCB183285E62A4008692B9 /* Preview Assets.xcassets */; };
@@ -27,8 +29,10 @@
 		48B1745C285E6A3D00999DA7 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		48B1749D285E8C9000999DA7 /* TimeInterval+string.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+string.swift"; sourceTree = "<group>"; };
 		48B1749F285E8FDB00999DA7 /* Sorrow Rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Sorrow Rain.mp3"; sourceTree = "<group>"; };
+		48B174A1285E927600999DA7 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		48B174A4285E933900999DA7 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		48DCB179285E62A0008692B9 /* PlayMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		48DCB17C285E62A0008692B9 /* PlayMusicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayMusicApp.swift; sourceTree = "<group>"; };
+		48DCB17C285E62A0008692B9 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		48DCB17E285E62A0008692B9 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		48DCB180285E62A4008692B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48DCB183285E62A4008692B9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -46,14 +50,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		48B1745E285E6A4500999DA7 /* resources */ = {
+		48B1745E285E6A4500999DA7 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
 				48B1749F285E8FDB00999DA7 /* Sorrow Rain.mp3 */,
 				48B17454285E651400999DA7 /* 君の笑う声.mp3 */,
 				48B17453285E651400999DA7 /* 地平线.m4a */,
 			);
-			path = resources;
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		48B1749C285E8C7800999DA7 /* Extensions */ = {
@@ -62,6 +66,24 @@
 				48B1749D285E8C9000999DA7 /* TimeInterval+string.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		48B174A3285E927900999DA7 /* ObservableObject */ = {
+			isa = PBXGroup;
+			children = (
+				48B174A4285E933900999DA7 /* Library.swift */,
+				48B174A1285E927600999DA7 /* Player.swift */,
+			);
+			path = ObservableObject;
+			sourceTree = "<group>";
+		};
+		48B174A6285E943A00999DA7 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				48DCB17C285E62A0008692B9 /* App.swift */,
+				48DCB17E285E62A0008692B9 /* MainView.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 		48DCB170285E62A0008692B9 = {
@@ -85,9 +107,9 @@
 		48DCB17B285E62A0008692B9 /* PlayMusic */ = {
 			isa = PBXGroup;
 			children = (
-				48B1745E285E6A4500999DA7 /* resources */,
-				48DCB17C285E62A0008692B9 /* PlayMusicApp.swift */,
-				48DCB17E285E62A0008692B9 /* MainView.swift */,
+				48B1745E285E6A4500999DA7 /* Resource */,
+				48B174A6285E943A00999DA7 /* App */,
+				48B174A3285E927900999DA7 /* ObservableObject */,
 				48B1745C285E6A3D00999DA7 /* Song.swift */,
 				48B1749C285E8C7800999DA7 /* Extensions */,
 				48DCB180285E62A4008692B9 /* Assets.xcassets */,
@@ -185,7 +207,9 @@
 			files = (
 				48B1745D285E6A3D00999DA7 /* Song.swift in Sources */,
 				48DCB17F285E62A0008692B9 /* MainView.swift in Sources */,
-				48DCB17D285E62A0008692B9 /* PlayMusicApp.swift in Sources */,
+				48B174A5285E933900999DA7 /* Library.swift in Sources */,
+				48DCB17D285E62A0008692B9 /* App.swift in Sources */,
+				48B174A2285E927600999DA7 /* Player.swift in Sources */,
 				48B1749E285E8C9000999DA7 /* TimeInterval+string.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
