@@ -7,10 +7,12 @@ struct MainView: View {
     let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
 
     @State var audioPlayer: AVAudioPlayer?
+    var audioPlayerDelegate = PlayerDelegate()
     @State var isPlaying = false
     @State var progress = 0.0 // [0.0, 1.0]
 
     @State var songLibrary: [Song] = [
+        Song(name: "Sorrow Rain", url: Bundle.main.url(forResource: "Sorrow Rain", withExtension: "mp3")!),
         Song(name: "君の笑う声", url: Bundle.main.url(forResource: "君の笑う声", withExtension: "mp3")!),
         Song(name: "地平线", url: Bundle.main.url(forResource: "地平线", withExtension: "m4a")!),
     ]
@@ -38,7 +40,7 @@ struct MainView: View {
                                         // https://www.hackingwithswift.com/quick-start/swiftui/how-to-show-progress-on-a-task-using-progressview
                                         ProgressView(value: progress, total: 1.0)
                                             .onReceive(timer) { _ in
-                                                XCLog()
+//                                                XCLog()
                                                 progress = audioPlayer == nil ? 0.0 : (audioPlayer!.currentTime / audioPlayer!.duration)
                                             }
                                         Text(audioPlayer == nil ? "-:-" : "\(audioPlayer!.duration.string)")
@@ -84,6 +86,7 @@ struct MainView: View {
         isPlaying = false
 
         audioPlayer = try! AVAudioPlayer(contentsOf: song.url)
+        audioPlayer!.delegate = audioPlayerDelegate
         audioPlayer!.play()
         isPlaying = true
     }
@@ -106,5 +109,13 @@ struct MainView: View {
         XCLog()
 
         // TODO: fetch song to app sandbox; add song to songLibrary
+    }
+}
+
+class PlayerDelegate: NSObject, AVAudioPlayerDelegate {
+    
+    func audioPlayerDidFinishPlaying(_: AVAudioPlayer, successfully _: Bool) {
+        XCLog()
+        
     }
 }
