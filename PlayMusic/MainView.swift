@@ -20,20 +20,27 @@ struct MainView: View {
                             Spacer()
                             Image(systemName: "music.note")
                                 .font(.system(size: 144))
+                                .foregroundColor(isPlaying ? .black : .gray)
                             Spacer()
                             Divider()
                             Button(action: {
-                                playpauseCurrentSong()
-
+                                withAnimation {
+                                    playpauseCurrentSong()
+                                }
                             }) {
-                                Image(systemName: isPlaying ? "pause.circle" : "play.circle")
-                                    .font(.system(size: 60))
+                                if audioPlayer == nil {
+                                    EmptyView()
+                                } else {
+                                    Image(systemName: isPlaying ? "pause.circle" : "play.circle")
+                                        .font(.system(size: 60))
+                                }
                             }
                         }
                         .padding()
                         .onAppear {
                             playNewSong(song)
                         }
+                        .navigationTitle(song.name)
                     } label: {
                         Text(song.name)
                     }
