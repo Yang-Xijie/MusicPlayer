@@ -6,14 +6,23 @@ struct ContentView: View {
     @State var audioPlayer: AVAudioPlayer!
     @State var isPlaying = false
 
+    @State var songLibrary: [Song] = [
+        Song(name: "君の笑う声", url: Bundle.main.url(forResource: "君の笑う声", withExtension: "mp3")!),
+        Song(name: "地平线", url: Bundle.main.url(forResource: "地平线", withExtension: "m4a")!),
+    ]
+
+    let defaultSong = Song(name: "君の笑う声", url: Bundle.main.url(forResource: "君の笑う声", withExtension: "mp3")!)
+    @State var currentSong: Song
+
     init() {
-//        let song = Bundle.main.path(forResource: "地平线", ofType: "m4a")
-        let song = Bundle.main.path(forResource: "君の笑う声", ofType: "mp3")
-        self._audioPlayer = State(initialValue: try! AVAudioPlayer(contentsOf: URL(fileURLWithPath: song!)))
+        self._audioPlayer = State(initialValue: try! AVAudioPlayer(contentsOf: defaultSong.url))
+        self._currentSong = State(initialValue: defaultSong)
     }
 
     var body: some View {
         VStack {
+            Text(currentSong.name)
+                .font(.title)
             Button(action: {
                 if audioPlayer.isPlaying {
                     self.audioPlayer.pause()
@@ -24,9 +33,10 @@ struct ContentView: View {
                 }
             }) {
                 Image(systemName: isPlaying ? "pause.circle.fill" : "play.circle.fill")
-                    .font(.title)
+                    .font(.system(size: 60))
             }
         }
+        .padding()
         .onAppear {
             XCLog(.trace)
         }
