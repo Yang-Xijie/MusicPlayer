@@ -1,5 +1,3 @@
-// PlayMusicApp.swift
-
 import SwiftUI
 
 @main

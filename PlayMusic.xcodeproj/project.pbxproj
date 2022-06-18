@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48B17455285E651400999DA7 /* 地平线.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 48B17453285E651400999DA7 /* 地平线.m4a */; };
+		48B17456285E651400999DA7 /* 君の笑う声.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 48B17454285E651400999DA7 /* 君の笑う声.mp3 */; };
+		48B1745A285E682800999DA7 /* XCLog in Frameworks */ = {isa = PBXBuildFile; productRef = 48B17459285E682800999DA7 /* XCLog */; };
 		48DCB17D285E62A0008692B9 /* PlayMusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DCB17C285E62A0008692B9 /* PlayMusicApp.swift */; };
 		48DCB17F285E62A0008692B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DCB17E285E62A0008692B9 /* ContentView.swift */; };
 		48DCB181285E62A4008692B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48DCB180285E62A4008692B9 /* Assets.xcassets */; };
@@ -14,6 +17,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		48B17453285E651400999DA7 /* 地平线.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "地平线.m4a"; sourceTree = "<group>"; };
+		48B17454285E651400999DA7 /* 君の笑う声.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "君の笑う声.mp3"; sourceTree = "<group>"; };
+		48B17457285E661900999DA7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		48B1745B285E685900999DA7 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		48DCB179285E62A0008692B9 /* PlayMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48DCB17C285E62A0008692B9 /* PlayMusicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayMusicApp.swift; sourceTree = "<group>"; };
 		48DCB17E285E62A0008692B9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48B1745A285E682800999DA7 /* XCLog in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -35,6 +43,8 @@
 		48DCB170285E62A0008692B9 = {
 			isa = PBXGroup;
 			children = (
+				48B17457285E661900999DA7 /* README.md */,
+				48B1745B285E685900999DA7 /* TODO.md */,
 				48DCB17B285E62A0008692B9 /* PlayMusic */,
 				48DCB17A285E62A0008692B9 /* Products */,
 			);
@@ -51,6 +61,8 @@
 		48DCB17B285E62A0008692B9 /* PlayMusic */ = {
 			isa = PBXGroup;
 			children = (
+				48B17454285E651400999DA7 /* 君の笑う声.mp3 */,
+				48B17453285E651400999DA7 /* 地平线.m4a */,
 				48DCB17C285E62A0008692B9 /* PlayMusicApp.swift */,
 				48DCB17E285E62A0008692B9 /* ContentView.swift */,
 				48DCB180285E62A4008692B9 /* Assets.xcassets */,
@@ -83,6 +95,9 @@
 			dependencies = (
 			);
 			name = PlayMusic;
+			packageProductDependencies = (
+				48B17459285E682800999DA7 /* XCLog */,
+			);
 			productName = PlayMusic;
 			productReference = 48DCB179285E62A0008692B9 /* PlayMusic.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +126,9 @@
 				Base,
 			);
 			mainGroup = 48DCB170285E62A0008692B9;
+			packageReferences = (
+				48B17458285E682700999DA7 /* XCRemoteSwiftPackageReference "XCLog" */,
+			);
 			productRefGroup = 48DCB17A285E62A0008692B9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,8 +143,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48B17455285E651400999DA7 /* 地平线.m4a in Resources */,
 				48DCB184285E62A4008692B9 /* Preview Assets.xcassets in Resources */,
 				48DCB181285E62A4008692B9 /* Assets.xcassets in Resources */,
+				48B17456285E651400999DA7 /* 君の笑う声.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +359,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		48B17458285E682700999DA7 /* XCRemoteSwiftPackageReference "XCLog" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Yang-Xijie/XCLog";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		48B17459285E682800999DA7 /* XCLog */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48B17458285E682700999DA7 /* XCRemoteSwiftPackageReference "XCLog" */;
+			productName = XCLog;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 48DCB171285E62A0008692B9 /* Project object */;
 }
