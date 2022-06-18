@@ -28,12 +28,8 @@ struct MainView: View {
                                     playpauseCurrentSong()
                                 }
                             }) {
-                                if audioPlayer == nil {
-                                    EmptyView()
-                                } else {
-                                    Image(systemName: isPlaying ? "pause.circle" : "play.circle")
-                                        .font(.system(size: 60))
-                                }
+                                Image(systemName: isPlaying ? "pause.circle" : "play.circle")
+                                    .font(.system(size: 60))
                             }
                         }
                         .padding()
@@ -41,6 +37,7 @@ struct MainView: View {
                             playNewSong(song)
                         }
                         .navigationTitle(song.name)
+                        .edgesIgnoringSafeArea(.bottom)
                     } label: {
                         Text(song.name)
                     }

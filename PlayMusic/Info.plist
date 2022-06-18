@@ -3,6 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>UIStatusBarHidden~ipad</key>
-	<true/>
+	<false/>
 </dict>
 </plist>
