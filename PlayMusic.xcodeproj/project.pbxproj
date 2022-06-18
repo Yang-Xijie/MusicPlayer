@@ -11,7 +11,6 @@
 		48B17456285E651400999DA7 /* 君の笑う声.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 48B17454285E651400999DA7 /* 君の笑う声.mp3 */; };
 		48B1745A285E682800999DA7 /* XCLog in Frameworks */ = {isa = PBXBuildFile; productRef = 48B17459285E682800999DA7 /* XCLog */; };
 		48B1745D285E6A3D00999DA7 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1745C285E6A3D00999DA7 /* Song.swift */; };
-		48B17499285E713B00999DA7 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B17498285E713B00999DA7 /* PlayerView.swift */; };
 		48DCB17D285E62A0008692B9 /* PlayMusicApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DCB17C285E62A0008692B9 /* PlayMusicApp.swift */; };
 		48DCB17F285E62A0008692B9 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DCB17E285E62A0008692B9 /* MainView.swift */; };
 		48DCB181285E62A4008692B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48DCB180285E62A4008692B9 /* Assets.xcassets */; };
@@ -24,7 +23,6 @@
 		48B17457285E661900999DA7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		48B1745B285E685900999DA7 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		48B1745C285E6A3D00999DA7 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
-		48B17498285E713B00999DA7 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		48DCB179285E62A0008692B9 /* PlayMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48DCB17C285E62A0008692B9 /* PlayMusicApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayMusicApp.swift; sourceTree = "<group>"; };
 		48DCB17E285E62A0008692B9 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -77,7 +75,6 @@
 				48B1745E285E6A4500999DA7 /* resources */,
 				48DCB17C285E62A0008692B9 /* PlayMusicApp.swift */,
 				48DCB17E285E62A0008692B9 /* MainView.swift */,
-				48B17498285E713B00999DA7 /* PlayerView.swift */,
 				48B1745C285E6A3D00999DA7 /* Song.swift */,
 				48DCB180285E62A4008692B9 /* Assets.xcassets */,
 				48DCB182285E62A4008692B9 /* Preview Content */,
@@ -173,7 +170,6 @@
 			files = (
 				48B1745D285E6A3D00999DA7 /* Song.swift in Sources */,
 				48DCB17F285E62A0008692B9 /* MainView.swift in Sources */,
-				48B17499285E713B00999DA7 /* PlayerView.swift in Sources */,
 				48DCB17D285E62A0008692B9 /* PlayMusicApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

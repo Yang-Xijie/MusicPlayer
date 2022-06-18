@@ -3,6 +3,9 @@ import SwiftUI
 import XCLog
 
 struct MainView: View {
+    @State var audioPlayer: AVAudioPlayer?
+    @State var isPlaying = false
+
     @State var songLibrary: [Song] = [
         Song(name: "君の笑う声", url: Bundle.main.url(forResource: "君の笑う声", withExtension: "mp3")!),
         Song(name: "地平线", url: Bundle.main.url(forResource: "地平线", withExtension: "m4a")!),
@@ -13,8 +16,24 @@ struct MainView: View {
             List {
                 ForEach(songLibrary, id: \.name) { song in
                     NavigationLink {
-                        PlayerView(song: song)
-                            .navigationTitle(song.name)
+                        VStack {
+                            Spacer()
+                            Image(systemName: "music.note")
+                                .font(.system(size: 144))
+                            Spacer()
+                            Divider()
+                            Button(action: {
+                                playpauseCurrentSong()
+
+                            }) {
+                                Image(systemName: isPlaying ? "pause.circle" : "play.circle")
+                                    .font(.system(size: 60))
+                            }
+                        }
+                        .padding()
+                        .onAppear {
+                            playNewSong(song)
+                        }
                     } label: {
                         Text(song.name)
                     }
@@ -29,19 +48,41 @@ struct MainView: View {
                 }
             }
 
+            // when app starts
             Image(systemName: "music.note")
                 .foregroundColor(.gray)
-                .font(.system(size: 72))
-                .navigationTitle("Now Playing")
+                .font(.system(size: 144))
         }
+    }
 
-        .onAppear {
-            XCLog()
+    private func playNewSong(_ song: Song) {
+        XCLog()
+
+        audioPlayer?.stop() // audioPlayer == nil -> won't call
+        isPlaying = false
+
+        audioPlayer = try! AVAudioPlayer(contentsOf: song.url)
+        audioPlayer!.play()
+        isPlaying = true
+    }
+
+    private func playpauseCurrentSong() {
+        XCLog()
+
+        if let player = audioPlayer {
+            if player.isPlaying {
+                player.pause()
+                isPlaying.toggle()
+            } else {
+                player.play()
+                isPlaying.toggle()
+            }
         }
     }
 
     private func ImportUserSongFromFile() {
         XCLog()
+
         // TODO: fetch song to app sandbox; add song to songLibrary
     }
 }
