@@ -3,8 +3,12 @@ import SwiftUI
 import XCLog
 
 struct MainView: View {
+    // update progress
+    let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+
     @State var audioPlayer: AVAudioPlayer?
     @State var isPlaying = false
+    @State var progress = 0.0 // [0.0, 1.0]
 
     @State var songLibrary: [Song] = [
         Song(name: "君の笑う声", url: Bundle.main.url(forResource: "君の笑う声", withExtension: "mp3")!),
@@ -28,8 +32,22 @@ struct MainView: View {
                                     playpauseCurrentSong()
                                 }
                             }) {
-                                Image(systemName: isPlaying ? "pause.circle" : "play.circle")
-                                    .font(.system(size: 60))
+                                VStack {
+                                    HStack {
+                                        Text(audioPlayer == nil ? "-:-" : "\(audioPlayer!.currentTime.string)")
+                                        // https://www.hackingwithswift.com/quick-start/swiftui/how-to-show-progress-on-a-task-using-progressview
+                                        ProgressView(value: progress, total: 1.0)
+                                            .onReceive(timer) { _ in
+                                                XCLog()
+                                                progress = audioPlayer == nil ? 0.0 : (audioPlayer!.currentTime / audioPlayer!.duration)
+                                            }
+                                        Text(audioPlayer == nil ? "-:-" : "\(audioPlayer!.duration.string)")
+                                    }
+                                    Image(systemName: isPlaying ? "pause.circle" : "play.circle")
+                                        .font(.system(size: 60))
+                                }
+                                .padding()
+                                .edgesIgnoringSafeArea(.bottom)
                             }
                         }
                         .padding()
