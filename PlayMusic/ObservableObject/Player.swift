@@ -16,8 +16,6 @@ class Player: ObservableObject {
     }
 
     func playNewSong(_ song: Song) {
-        XCLog()
-
         audioPlayer?.stop() // audioPlayer == nil -> won't call
         isPlaying = false
 

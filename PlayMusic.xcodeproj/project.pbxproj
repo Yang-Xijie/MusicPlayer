@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		48B17455285E651400999DA7 /* 地平线.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 48B17453285E651400999DA7 /* 地平线.m4a */; };
-		48B17456285E651400999DA7 /* 君の笑う声.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 48B17454285E651400999DA7 /* 君の笑う声.mp3 */; };
+		486BED0828630AD8008D47C4 /* ImportFileFromFilesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486BED0728630AD8008D47C4 /* ImportFileFromFilesApp.swift */; };
+		486BED0C28631650008D47C4 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486BED0B28631650008D47C4 /* Folder.swift */; };
 		48B1745A285E682800999DA7 /* XCLog in Frameworks */ = {isa = PBXBuildFile; productRef = 48B17459285E682800999DA7 /* XCLog */; };
 		48B1745D285E6A3D00999DA7 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1745C285E6A3D00999DA7 /* Song.swift */; };
 		48B1749E285E8C9000999DA7 /* TimeInterval+string.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B1749D285E8C9000999DA7 /* TimeInterval+string.swift */; };
-		48B174A0285E8FDC00999DA7 /* Sorrow Rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 48B1749F285E8FDB00999DA7 /* Sorrow Rain.mp3 */; };
 		48B174A2285E927600999DA7 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B174A1285E927600999DA7 /* Player.swift */; };
 		48B174A5285E933900999DA7 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B174A4285E933900999DA7 /* Library.swift */; };
 		48DCB17D285E62A0008692B9 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DCB17C285E62A0008692B9 /* App.swift */; };
@@ -22,13 +21,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		48B17453285E651400999DA7 /* 地平线.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "地平线.m4a"; sourceTree = "<group>"; };
-		48B17454285E651400999DA7 /* 君の笑う声.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "君の笑う声.mp3"; sourceTree = "<group>"; };
+		486BED0728630AD8008D47C4 /* ImportFileFromFilesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportFileFromFilesApp.swift; sourceTree = "<group>"; };
+		486BED0B28631650008D47C4 /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
 		48B17457285E661900999DA7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		48B1745B285E685900999DA7 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		48B1745C285E6A3D00999DA7 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		48B1749D285E8C9000999DA7 /* TimeInterval+string.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+string.swift"; sourceTree = "<group>"; };
-		48B1749F285E8FDB00999DA7 /* Sorrow Rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Sorrow Rain.mp3"; sourceTree = "<group>"; };
 		48B174A1285E927600999DA7 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		48B174A4285E933900999DA7 /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		48DCB179285E62A0008692B9 /* PlayMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,20 +48,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		48B1745E285E6A4500999DA7 /* Resource */ = {
+		486BED0928631524008D47C4 /* FileSystem */ = {
 			isa = PBXGroup;
 			children = (
-				48B1749F285E8FDB00999DA7 /* Sorrow Rain.mp3 */,
-				48B17454285E651400999DA7 /* 君の笑う声.mp3 */,
-				48B17453285E651400999DA7 /* 地平线.m4a */,
+				486BED0B28631650008D47C4 /* Folder.swift */,
 			);
-			path = Resource;
+			path = FileSystem;
 			sourceTree = "<group>";
 		};
 		48B1749C285E8C7800999DA7 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				48B1749D285E8C9000999DA7 /* TimeInterval+string.swift */,
+				486BED0728630AD8008D47C4 /* ImportFileFromFilesApp.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -117,9 +114,9 @@
 			children = (
 				48B174A6285E943A00999DA7 /* App */,
 				48B174A3285E927900999DA7 /* ObservableObject */,
+				486BED0928631524008D47C4 /* FileSystem */,
 				48B174A7285E992400999DA7 /* DataStructure */,
 				48B1749C285E8C7800999DA7 /* Extension */,
-				48B1745E285E6A4500999DA7 /* Resource */,
 				48DCB180285E62A4008692B9 /* Assets.xcassets */,
 				48DCB182285E62A4008692B9 /* Preview Content */,
 			);
@@ -198,11 +195,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48B174A0285E8FDC00999DA7 /* Sorrow Rain.mp3 in Resources */,
-				48B17455285E651400999DA7 /* 地平线.m4a in Resources */,
 				48DCB184285E62A4008692B9 /* Preview Assets.xcassets in Resources */,
 				48DCB181285E62A4008692B9 /* Assets.xcassets in Resources */,
-				48B17456285E651400999DA7 /* 君の笑う声.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,9 +210,11 @@
 				48B1745D285E6A3D00999DA7 /* Song.swift in Sources */,
 				48DCB17F285E62A0008692B9 /* MainView.swift in Sources */,
 				48B174A5285E933900999DA7 /* Library.swift in Sources */,
+				486BED0C28631650008D47C4 /* Folder.swift in Sources */,
 				48DCB17D285E62A0008692B9 /* App.swift in Sources */,
 				48B174A2285E927600999DA7 /* Player.swift in Sources */,
 				48B1749E285E8C9000999DA7 /* TimeInterval+string.swift in Sources */,
+				486BED0828630AD8008D47C4 /* ImportFileFromFilesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

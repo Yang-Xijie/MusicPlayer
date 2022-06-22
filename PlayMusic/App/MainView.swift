@@ -6,6 +6,8 @@ struct MainView: View {
     @ObservedObject var player = Player()
     @ObservedObject var library = Library()
 
+    @State private var isPresentingAudioFileImporter = false
+
     // update progress
     let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
 
@@ -61,9 +63,21 @@ struct MainView: View {
             .navigationTitle("Library")
             .toolbar {
                 ToolbarItem {
-                    Button(action: library.ImportUserSongFromFile) {
+                    Button {
+                        isPresentingAudioFileImporter.toggle()
+                    } label: {
                         Label("Import", systemImage: "square.and.arrow.down")
                     }
+                }
+            }
+            .fileImporter(isPresented: $isPresentingAudioFileImporter,
+                          allowedContentTypes: [.audio]) { result in
+                do {
+                    let fileUrl = try result.get()
+                    library.ImportUserSongFromFilesApp(url: fileUrl)
+                    isPresentingAudioFileImporter = false
+                } catch {
+                    XCLog(.error, "\(error.localizedDescription)")
                 }
             }
 
