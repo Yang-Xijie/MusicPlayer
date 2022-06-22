@@ -64,7 +64,7 @@ struct MainView: View {
             .toolbar {
                 ToolbarItem {
                     Button {
-                        isPresentingAudioFileImporter.toggle()
+                        isPresentingAudioFileImporter = true
                     } label: {
                         Label("Import", systemImage: "square.and.arrow.down")
                     }
@@ -79,6 +79,7 @@ struct MainView: View {
                 } catch {
                     XCLog(.error, "\(error.localizedDescription)")
                 }
+                isPresentingAudioFileImporter = false
             }
 
             // when app starts
