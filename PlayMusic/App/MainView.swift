@@ -62,9 +62,18 @@ struct MainView: View {
             }
             .navigationTitle("Library")
             .toolbar {
-                ToolbarItem {
+                ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
-                        isPresentingAudioFileImporter = true
+                        //        https://stackoverflow.com/questions/69613669/swiftui-fileimporter-cannot-show-again-after-dismissing-by-swipe-down
+                        if isPresentingAudioFileImporter {
+                            // NOTE: Fixes broken fileimporter sheet not resetting on swipedown
+                            isPresentingAudioFileImporter = false
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                isPresentingAudioFileImporter = true
+                            }
+                        } else {
+                            isPresentingAudioFileImporter = true
+                        }
                     } label: {
                         Label("Import", systemImage: "square.and.arrow.down")
                     }
@@ -77,7 +86,7 @@ struct MainView: View {
                     library.ImportUserSongFromFilesApp(url: fileUrl)
                     isPresentingAudioFileImporter = false
                 } catch {
-                    XCLog(.error, "\(error.localizedDescription)")
+                    XCLog(.error, error.localizedDescription)
                 }
                 isPresentingAudioFileImporter = false
             }
