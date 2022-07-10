@@ -24,6 +24,7 @@
 /* Begin PBXFileReference section */
 		486BED0728630AD8008D47C4 /* ImportFileFromFilesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportFileFromFilesApp.swift; sourceTree = "<group>"; };
 		486BED0B28631650008D47C4 /* Folder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
+		48AFA846287AF88700347E6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		48B17457285E661900999DA7 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		48B1745B285E685900999DA7 /* TODO.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = TODO.md; sourceTree = "<group>"; };
 		48B1745C285E6A3D00999DA7 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
@@ -115,10 +116,11 @@
 		48DCB17B285E62A0008692B9 /* PlayMusic */ = {
 			isa = PBXGroup;
 			children = (
+				48AFA846287AF88700347E6F /* Info.plist */,
 				48B174A6285E943A00999DA7 /* App */,
 				48B174A3285E927900999DA7 /* ObservableObject */,
-				486BED0928631524008D47C4 /* FileSystem */,
 				48B174A7285E992400999DA7 /* DataStructure */,
+				486BED0928631524008D47C4 /* FileSystem */,
 				48B1749C285E8C7800999DA7 /* Extension */,
 				48DCB180285E62A4008692B9 /* Assets.xcassets */,
 				48DCB182285E62A4008692B9 /* Preview Content */,
@@ -350,9 +352,8 @@
 				DEVELOPMENT_TEAM = C4W6UUH267;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = PlayMusic/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
@@ -383,9 +384,8 @@
 				DEVELOPMENT_TEAM = C4W6UUH267;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "";
+				INFOPLIST_FILE = PlayMusic/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
