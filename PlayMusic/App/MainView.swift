@@ -3,13 +3,10 @@ import SwiftUI
 import XCLog
 
 struct MainView: View {
-    @ObservedObject var player = Player()
+    @ObservedObject var player = AudioPlayer()
     @ObservedObject var library = Library()
 
     @State private var isPresentingAudioFileImporter = false
-
-    // update progress
-    let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
 
     var body: some View {
         NavigationView {
@@ -32,14 +29,11 @@ struct MainView: View {
                                     Text(player.position == nil ? "-:-" : player.position!.string)
                                     // https://www.hackingwithswift.com/quick-start/swiftui/how-to-show-progress-on-a-task-using-progressview
                                     ProgressView(value: player.progress)
-                                        .onReceive(timer) { _ in
-                                            player.updateProgress()
-                                        }
                                     Text(player.duration == nil ? "-:-" : player.duration!.string)
                                 }
                                 Button(action: {
                                     withAnimation {
-                                        player.playpauseCurrentSong()
+                                        player.playpauseAudio()
                                     }
                                 }) {
                                     Image(systemName: player.isPlaying ? "pause.circle" : "play.circle")
@@ -51,7 +45,7 @@ struct MainView: View {
                         }
                         .padding()
                         .onAppear {
-                            player.playNewSong(song)
+                            player.prepareAndStartPlayingAudio(url: song.url)
                         }
                         .navigationTitle(song.name)
                         .edgesIgnoringSafeArea(.bottom)

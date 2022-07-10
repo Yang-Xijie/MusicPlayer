@@ -2,30 +2,47 @@ import AVKit
 import Foundation
 import XCLog
 
-class Player: ObservableObject {
+final class AudioPlayer: ObservableObject {
     private var audioPlayer: AVAudioPlayer?
     private var audioPlayerDelegate: PlayerDelegate?
-    @Published var isPlaying = false
-    @Published var progress: Double? = nil
-    @Published var position: Double? = nil
-    @Published var duration: Double? = nil
-
-    init() {
+    @Published public var isPlaying = false
+    @Published public var progress: Double? = nil
+    @Published public var position: Double? = nil
+    @Published public var duration: Double? = nil
+    var timer = Timer()
+    public init() {
         XCLog()
+
+        self.timer = Timer.scheduledTimer(withTimeInterval: 0.1,
+                                          repeats: true) { _ in
+            self.updateProgress()
+        }
+
         self.audioPlayerDelegate = PlayerDelegate(player: self)
     }
 
-    func playNewSong(_ song: Song) {
+    public func prepareAudio(url: URL) {
+        XCLog()
+
         audioPlayer?.stop() // audioPlayer == nil -> won't call
         isPlaying = false
 
-        audioPlayer = try! AVAudioPlayer(contentsOf: song.url)
+        audioPlayer = try! AVAudioPlayer(contentsOf: url)
         audioPlayer!.delegate = audioPlayerDelegate
+
+        audioPlayer!.enableRate = true // should set `enableRate` to true before the first play
+    }
+
+    public func prepareAndStartPlayingAudio(url: URL) {
+        XCLog()
+
+        prepareAudio(url: url)
+
         audioPlayer!.play()
         isPlaying = true
     }
 
-    func playpauseCurrentSong() {
+    public func playpauseAudio() {
         XCLog()
 
         if let player = audioPlayer {
@@ -41,13 +58,13 @@ class Player: ObservableObject {
         }
     }
 
-    func finishPlaying() {
+    public func finishPlaying() {
         XCLog()
 
         isPlaying = false
     }
 
-    func updateProgress() {
+    public func updateProgress() {
         if let player = audioPlayer {
             progress = player.currentTime / player.duration
             position = player.currentTime
@@ -56,16 +73,51 @@ class Player: ObservableObject {
             progress = nil
         }
     }
+
+    public func goto(seconds: Double) {
+        if let player = audioPlayer, seconds >= 0.0, seconds < player.duration {
+            player.currentTime = seconds
+        }
+    }
+
+    public func gobackward(seconds: Double) {
+        if let player = audioPlayer {
+            if player.currentTime - seconds < 0.0 {
+                player.currentTime = 0.0
+            } else {
+                player.currentTime = player.currentTime - seconds
+            }
+        }
+    }
+
+    public func goforward(seconds: Double) {
+        if let player = audioPlayer {
+            if player.currentTime + seconds >= player.duration {
+                player.currentTime = player.duration - 2.0
+            } else {
+                player.currentTime = player.currentTime + seconds
+            }
+        }
+    }
+
+    // accepts [0.5, 2.0]
+    public func setPlaySpeed(_ speed: Float) {
+        if speed < 0.5 || speed > 2.0 {
+            XCLog(.error, "invalid speed")
+            return
+        }
+        self.audioPlayer?.rate = speed
+    }
 }
 
-class PlayerDelegate: NSObject, AVAudioPlayerDelegate {
-    var player: Player
+final class PlayerDelegate: NSObject, AVAudioPlayerDelegate {
+    private var player: AudioPlayer
 
-    init(player: Player) {
+    public init(player: AudioPlayer) {
         self.player = player
     }
 
-    func audioPlayerDidFinishPlaying(_: AVAudioPlayer, successfully _: Bool) {
+    public func audioPlayerDidFinishPlaying(_: AVAudioPlayer, successfully _: Bool) {
         XCLog()
         player.finishPlaying()
     }
