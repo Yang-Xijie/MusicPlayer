@@ -27,28 +27,18 @@ struct MainView: View {
                             VStack {
                                 HStack {
                                     Text(player.position == nil ? "-:-" : player.position!.string)
-                                    // https://www.hackingwithswift.com/quick-start/swiftui/how-to-show-progress-on-a-task-using-progressview
                                     ProgressView(value: player.progress)
                                     Text(player.duration == nil ? "-:-" : player.duration!.string)
                                 }
-                                Button(action: {
-                                    withAnimation {
-                                        player.playpauseAudio()
-                                    }
-                                }) {
-                                    Image(systemName: player.isPlaying ? "pause.circle" : "play.circle")
-                                        .font(.system(size: 60))
-                                }
-                                .edgesIgnoringSafeArea(.bottom)
+                                .padding([.horizontal])
+
+                                AudioPlayerControlView(player: player)
                             }
-                            .padding()
                         }
-                        .padding()
                         .onAppear {
                             player.prepareAndStartPlayingAudio(url: song.url)
                         }
                         .navigationTitle(song.name)
-                        .edgesIgnoringSafeArea(.bottom)
                     } label: {
                         Text(song.name)
                     }
